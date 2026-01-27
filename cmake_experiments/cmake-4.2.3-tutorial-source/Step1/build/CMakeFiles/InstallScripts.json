@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/adeleux/esp32/esp_experiments_sar/cmake_experiments/cmake-4.2.3-tutorial-source/Step1/build/cmake_install.cmake",
+		"/home/adeleux/esp32/esp_experiments_sar/cmake_experiments/cmake-4.2.3-tutorial-source/Step1/build/Tutorial/cmake_install.cmake",
+		"/home/adeleux/esp32/esp_experiments_sar/cmake_experiments/cmake-4.2.3-tutorial-source/Step1/build/MathFunctions/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
