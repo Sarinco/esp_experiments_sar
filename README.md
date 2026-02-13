@@ -23,3 +23,14 @@ configuring esp idf and commands that go with it :
 ```
 https://espressif-docs.readthedocs-hosted.com/projects/esp-idf/en/stable/get-started/index.html#get-started-connect
 ```
+
+
+
+### commands to run and build project
+
+```
+idf.py build
+idf.py -p $(USB_PORT) flash monitor 
+```
+
+ctrl+] to close the monitoring
