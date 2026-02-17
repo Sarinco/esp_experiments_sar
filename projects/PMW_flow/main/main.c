@@ -16,10 +16,7 @@ int used_gpios_length = sizeof(used_gpios) / sizeof(used_gpios[0]);
 int timer = 0;
 
 int delay_ms = 50 / portTICK_PERIOD_MS;
-int duty_values[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                     1023, 512, 256, 128, 64, 32, 16, 8, 4, 2, 
-                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-                    };
+int duty_values[] = {1023, 512, 256, 128, 64, 32, 16, 8, 4, 2};
 
 void app_main(void)
 {
@@ -32,20 +29,32 @@ void app_main(void)
     }
     
     while (1) {
-        for (size_t i = 0; i < 20; i++)
+        for (size_t i = 0; i < 10; i++)
         {
             for (size_t j = 0; j < 10; j++)
             {
-                change_duty(j, duty_values[i+j]);
+                if (j == i){
+                    duty_values[j] = 1023;
+                } else{
+                    duty_values[j] /= 2;
+                }
+                
+                change_duty(j, duty_values[j]);
             }
             vTaskDelay(delay_ms);
         }
 
-        for (size_t i = 0; i < 20; i++)
+        for (int i = 8; i > 0; i-=1)
         {
             for (size_t j = 0; j < 10; j++)
             {
-                change_duty(9-j, duty_values[i+j]);
+                if (j == i){
+                    duty_values[j] = 1023;
+                } else{
+                    duty_values[j] /= 2;
+                }
+                
+                change_duty(j, duty_values[j]);
             }
             vTaskDelay(delay_ms);
         }
